@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   normalization.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssuopea <ssuopea@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/11 13:56:16 by ssuopea           #+#    #+#             */
-/*   Updated: 2025/07/13 13:15:27 by ssuopea          ###   ########.fr       */
+/*   Created: 2025/07/13 10:42:35 by ssuopea           #+#    #+#             */
+/*   Updated: 2025/07/13 13:30:03 by ssuopea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	normal_map(t_node **stack)
 {
-	t_node	*a;
-	t_node	*b;
+	int			lowest;
+	unsigned	i;
+	unsigned	size;
+	t_node		*start;
 
-	a = NULL;
-	b = NULL;
-	if (argc <= 2)
-		return (0);
-	a = args_to_circular_doubly_linked_list(argc, argv, a);
-	normal_map(&a);
-	// check for duplicates
-	show_stacks(a, b, 1);
-	interact(a, b);
-	// rad_lsd(a, b);
-	free_everything(a, b);
-	return (0);
+	lowest = FT_INT_MAX;
+	i = 1;
+	size = node_count(*stack);
+	start = *stack;
+	while (i < size + 1)
+	{
+		if (lowest == (*stack)->value)
+		{
+			(*stack)->index = i;
+			i++;
+			lowest = FT_INT_MAX;
+		}
+		if (!(*stack)->index && (*stack)->value < lowest)
+			lowest = (*stack)->value;
+		(*stack) = (*stack)->next;
+	}
+	*stack = start;
 }
-

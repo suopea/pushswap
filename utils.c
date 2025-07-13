@@ -6,7 +6,7 @@
 /*   By: ssuopea <ssuopea@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 14:51:28 by ssuopea           #+#    #+#             */
-/*   Updated: 2025/07/11 17:47:19 by ssuopea          ###   ########.fr       */
+/*   Updated: 2025/07/13 13:29:56 by ssuopea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	atoijoi(const char *nptr, int *oijoi)
 	return (out);
 }
 
-static void	free_stack(t_node *stack)
+void	free_stack(t_node *stack)
 {
 	t_node	*to_go;
 	t_node	*next_to_go;
@@ -59,4 +59,19 @@ void	free_everything(t_node *a, t_node *b)
 		free_stack(a);
 	if (b)
 		free_stack(b);
+}
+
+unsigned	node_count(t_node *stack)
+{
+	t_node		*look;
+	unsigned	i;
+
+	look = stack->next;
+	i = 1;
+	while (look != stack)
+	{
+		look = look->next;
+		i++;
+	}
+	return (i);
 }

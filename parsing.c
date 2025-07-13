@@ -6,7 +6,7 @@
 /*   By: ssuopea <ssuopea@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 17:55:09 by ssuopea           #+#    #+#             */
-/*   Updated: 2025/07/12 14:51:34 by ssuopea          ###   ########.fr       */
+/*   Updated: 2025/07/13 11:38:35 by ssuopea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	argument_is_valid(char *arg);
 static t_node	*create_and_append(int num, t_node *a);
 
-t_node	*args_to_list(int argc, char **argv, t_node *a)
+t_node	*args_to_circular_doubly_linked_list(int argc, char **argv, t_node *a)
 {
 	int	i;
 	int	number;
@@ -28,8 +28,12 @@ t_node	*args_to_list(int argc, char **argv, t_node *a)
 		if (argument_is_valid(argv[i]))
 		{
 			number = atoijoi(argv[i], &overflow);
-			if (!overflow)
-				a = create_and_append(number, a);
+			if (overflow)
+			{
+				free_stack(a);
+				// print error
+			}
+			a = create_and_append(number, a);
 		}
 		i++;
 	}
