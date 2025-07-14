@@ -6,19 +6,18 @@
 /*   By: ssuopea <ssuopea@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 14:12:00 by ssuopea           #+#    #+#             */
-/*   Updated: 2025/07/12 15:16:51 by ssuopea          ###   ########.fr       */
+/*   Updated: 2025/07/14 18:09:41 by ssuopea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_node **src, t_node **dest)
+void	push(t_node **src, t_node **dest, char *move)
 {
 	t_node	*trip;
 
-	if (!*src)  // TODO unnecessary when finished
-		return ;
 	trip = *src;
+	write(1, move, 3);
 	if (trip->next == trip)
 		(*src) = NULL;
 	else
@@ -39,4 +38,10 @@ void	swap(t_node **src, t_node **dest)
 	(*dest)->prev = trip;
 	trip->prev->next = trip;
 	(*dest) = trip;
+}
+
+void rot(t_node **a)
+{
+	(*a) = (*a)->next;
+	write(1, "ra\n", 3);
 }

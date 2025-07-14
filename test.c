@@ -7,17 +7,16 @@ void	interact(t_node *a, t_node *b)
 	int		show_index;
 
 	show_index = 1;
+	show_stacks(a, b, show_index);
 	scanf("%s", input);
 	while (input[0] != 'q')
 	{
-		if (input[0] == 'p' && input[1] == 'b')
-			swap(&a, &b);
-		if (input[0] == 'p' && input[1] == 'a')
-			swap(&b, &a);
-		if (input[0] == 'r' && input[1] == 'a')
+		if (input[0] == 'b')
+			push(&a, &b, "pb\n");
+		if (input[0] == 'a')
+			push(&b, &a, "pa\n");
+		if (input[0] == 'r')
 			a = a->next;
-		if (input[0] == 'r' && input[1] == 'b')
-			b = b->next;
 		if (input[0] == 'i')
 			show_index *= -1;
 		show_stacks(a, b, show_index);

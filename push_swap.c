@@ -6,7 +6,7 @@
 /*   By: ssuopea <ssuopea@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 13:56:16 by ssuopea           #+#    #+#             */
-/*   Updated: 2025/07/13 13:15:27 by ssuopea          ###   ########.fr       */
+/*   Updated: 2025/07/14 17:46:36 by ssuopea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,19 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (argc <= 2)
 		return (0);
+	if (has_duplicates(argc, argv))
+	{
+		write(1, "Error\n", 7);
+		return (1);
+	}
 	a = args_to_circular_doubly_linked_list(argc, argv, a);
 	normal_map(&a);
-	// check for duplicates
-	show_stacks(a, b, 1);
-	interact(a, b);
-	// rad_lsd(a, b);
+	if (already_sorted(a))
+		;
+	else if (argc <= 4 || argc == 6)
+		small_sort(a);
+	else
+		rad_lsd(a, b);
 	free_everything(a, b);
 	return (0);
 }
