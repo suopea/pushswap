@@ -6,7 +6,7 @@
 /*   By: ssuopea <ssuopea@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 14:12:00 by ssuopea           #+#    #+#             */
-/*   Updated: 2025/07/14 18:09:41 by ssuopea          ###   ########.fr       */
+/*   Updated: 2025/07/14 18:37:01 by ssuopea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	push(t_node **src, t_node **dest, char *move)
 	(*dest) = trip;
 }
 
-void rot(t_node **a)
+void	rot(t_node **a)
 {
 	(*a) = (*a)->next;
 	write(1, "ra\n", 3);

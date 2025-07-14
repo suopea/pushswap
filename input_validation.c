@@ -6,7 +6,7 @@
 /*   By: ssuopea <ssuopea@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 12:03:37 by ssuopea           #+#    #+#             */
-/*   Updated: 2025/07/14 14:43:56 by ssuopea          ###   ########.fr       */
+/*   Updated: 2025/07/14 18:38:09 by ssuopea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static int	ft_strcmp(const char *s1, const char *s2);
 
 int	already_sorted(t_node *a)
 {
-	unsigned	start;
-	t_node		*temp;
+	unsigned int	start;
+	t_node			*temp;
 
 	start = a->index;
 	temp = a->next;
@@ -39,7 +39,7 @@ int	has_duplicates(int argc, char **argv)
 	while (i < argc)
 	{
 		j = 1;
-		while (i + j < argc) // todo make sure this is correct
+		while (i + j < argc)
 		{
 			if (!ft_strcmp(argv[i], argv[i + j]))
 				return (1);

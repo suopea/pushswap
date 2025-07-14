@@ -6,7 +6,7 @@
 /*   By: ssuopea <ssuopea@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 13:56:16 by ssuopea           #+#    #+#             */
-/*   Updated: 2025/07/14 17:46:36 by ssuopea          ###   ########.fr       */
+/*   Updated: 2025/07/14 18:37:14 by ssuopea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,3 @@ int	main(int argc, char **argv)
 	free_everything(a, b);
 	return (0);
 }
-

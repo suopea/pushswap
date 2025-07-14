@@ -6,7 +6,7 @@
 /*   By: ssuopea <ssuopea@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 10:42:35 by ssuopea           #+#    #+#             */
-/*   Updated: 2025/07/13 13:30:03 by ssuopea          ###   ########.fr       */
+/*   Updated: 2025/07/14 18:33:50 by ssuopea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	normal_map(t_node **stack)
 {
-	int			lowest;
-	unsigned	i;
-	unsigned	size;
-	t_node		*start;
+	int				lowest;
+	unsigned int	i;
+	unsigned int	size;
+	t_node			*start;
 
-	lowest = FT_INT_MAX;
+	lowest = INT_MAX;
 	i = 1;
 	size = node_count(*stack);
 	start = *stack;
@@ -29,7 +29,7 @@ void	normal_map(t_node **stack)
 		{
 			(*stack)->index = i;
 			i++;
-			lowest = FT_INT_MAX;
+			lowest = INT_MAX;
 		}
 		if (!(*stack)->index && (*stack)->value < lowest)
 			lowest = (*stack)->value;

@@ -6,19 +6,27 @@
 /*   By: ssuopea <ssuopea@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 13:45:03 by ssuopea           #+#    #+#             */
-/*   Updated: 2025/07/14 18:02:48 by ssuopea          ###   ########.fr       */
+/*   Updated: 2025/07/14 19:07:34 by ssuopea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static unsigned	place_is_within_max_index(unsigned place, unsigned size);
+static unsigned int	place_is_within_max_index(unsigned place, unsigned max_value)
+{
+	unsigned int	exponent;
+
+	exponent = 1;
+	while ((unsigned int) 2 << (exponent - 1) <= max_value)
+		exponent++;
+	return (place <= exponent);
+}
 
 void	rad_lsd(t_node *a, t_node *b)
 {
-	unsigned	size;
-	unsigned	place;
-	unsigned	i;
+	unsigned int	size;
+	unsigned int	place;
+	unsigned int	i;
 
 	size = node_count(a);
 	place = 1;
@@ -41,14 +49,3 @@ void	rad_lsd(t_node *a, t_node *b)
 		place++;
 	}
 }
-
-static unsigned	place_is_within_max_index(unsigned place, unsigned max_value)
-{
-	unsigned	exponent;
-
-	exponent = 1;
-	while ((unsigned) 2 << (exponent - 1) <= max_value)
-		exponent++;
-	return (place <= exponent);
-}
-
