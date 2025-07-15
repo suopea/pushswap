@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static unsigned int	place_is_within_max_index(unsigned place, unsigned max_value)
+static unsigned int	unsorted_bits(unsigned place, unsigned max_value)
 {
 	unsigned int	exponent;
 
@@ -31,17 +31,17 @@ void	rad_lsd(t_node *a, t_node *b)
 	size = node_count(a);
 	place = 1;
 	i = 0;
-	while (place_is_within_max_index(place, size))
+	while (unsorted_bits(place, size))
 	{
 		while (i < size)
 		{
+			if (!b && already_sorted(a))
+				return ;
 			if ((a->index >> (place - 1) & 1) == 0)
 				push(&a, &b, "pb\n");
 			else
 				rot(&a);
 			i++;
-			if (already_sorted(a) && !b)
-				return ;
 		}
 		while (b)
 			push(&b, &a, "pa\n");

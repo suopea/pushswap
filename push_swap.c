@@ -20,19 +20,21 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	if (argc <= 2)
+	{
+		if (argc == 2)
+			exit_if_not_a_valid_number(argv[1], a);
 		return (0);
+	}
 	if (has_duplicates(argc, argv))
 	{
-		write(1, "Error\n", 7);
+		write(1, "Error\n", 6);
 		return (1);
 	}
-	a = args_to_circular_doubly_linked_list(argc, argv, a);
+	a = args_to_linked_list(argc, argv, a);
 	normal_map(&a);
-	if (already_sorted(a))
-		;
-	else if (argc <= 6)
+	if (argc <= 6 && !already_sorted(a))
 		small_sort(a, b);
-	else
+	else if (!already_sorted(a))
 		rad_lsd(a, b);
 	free_everything(a, b);
 	return (0);

@@ -12,11 +12,10 @@
 
 #include "push_swap.h"
 
-static void		exit_if_not_a_valid_number(char *arg, t_node *a);
 static t_node	*create_and_append(int num, t_node *a);
 static void		error_free_and_exit(t_node *stack);
 
-t_node	*args_to_circular_doubly_linked_list(int argc, char **argv, t_node *a)
+t_node	*args_to_linked_list(int argc, char **argv, t_node *a)
 {
 	int	i;
 	int	number;
@@ -39,11 +38,11 @@ t_node	*args_to_circular_doubly_linked_list(int argc, char **argv, t_node *a)
 static void	error_free_and_exit(t_node *stack)
 {
 	free_everything(stack, NULL);
-	write(1, "Error\n", 7);
+	write(1, "Error\n", 6);
 	exit(1);
 }
 
-static void	exit_if_not_a_valid_number(char *arg, t_node *a)
+void	exit_if_not_a_valid_number(char *arg, t_node *a)
 {
 	if (*arg == '-' || *arg == '+')
 		arg++;
