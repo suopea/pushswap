@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <limits.h>
 
 void	normal_map(t_node **stack)
 {
@@ -25,7 +26,8 @@ void	normal_map(t_node **stack)
 	start = *stack;
 	while (i < size + 1)
 	{
-		if (lowest == (*stack)->value)
+		if (lowest == (*stack)->value
+		&& !(lowest == INT_MAX && i < size))
 		{
 			(*stack)->index = i;
 			i++;
@@ -37,3 +39,6 @@ void	normal_map(t_node **stack)
 	}
 	*stack = start;
 }
+
+// if the value of this node is int max, write only if the index is equal to size
+// if this value is the lowest AND it isn't so that the value is intmax and index is less than size

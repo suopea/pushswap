@@ -38,7 +38,7 @@ t_node	*args_to_circular_doubly_linked_list(int argc, char **argv, t_node *a)
 
 static void	error_free_and_exit(t_node *stack)
 {
-	free_stack(stack);
+	free_everything(stack, NULL);
 	write(1, "Error\n", 7);
 	exit(1);
 }

@@ -30,8 +30,8 @@ int	main(int argc, char **argv)
 	normal_map(&a);
 	if (already_sorted(a))
 		;
-	else if (argc <= 4 || argc == 6)
-		small_sort(a);
+	else if (argc <= 6)
+		small_sort(a, b);
 	else
 		rad_lsd(a, b);
 	free_everything(a, b);

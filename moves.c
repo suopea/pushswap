@@ -45,3 +45,9 @@ void	rot(t_node **a)
 	(*a) = (*a)->next;
 	write(1, "ra\n", 3);
 }
+
+void	rrot(t_node **a)
+{
+	(*a) = (*a)->prev;
+	write(1, "rra\n", 4);
+}
