@@ -13,7 +13,6 @@
 #include "push_swap.h"
 
 static t_node	*create_and_append(int num, t_node *a);
-static void		error_free_and_exit(t_node *stack);
 
 t_node	*args_to_linked_list(int argc, char **argv, t_node *a)
 {
@@ -35,7 +34,7 @@ t_node	*args_to_linked_list(int argc, char **argv, t_node *a)
 	return (a->next);
 }
 
-static void	error_free_and_exit(t_node *stack)
+void	error_free_and_exit(t_node *stack)
 {
 	free_everything(stack, NULL);
 	write(1, "Error\n", 6);
@@ -44,9 +43,17 @@ static void	error_free_and_exit(t_node *stack)
 
 void	exit_if_not_a_valid_number(char *arg, t_node *a)
 {
+	int	oijoi;
+
+	if ((*arg == '-' || *arg == '+') && !ft_isdigit(arg[1]))
+		error_free_and_exit(a);
 	if (*arg == '-' || *arg == '+')
 		arg++;
-	if (ft_strlen(arg) > 10)
+	if (ft_strlen(arg) > 10 || *arg == 0)
+		error_free_and_exit(a);
+	oijoi = 0;
+	atoijoi(arg, &oijoi);
+	if (oijoi)
 		error_free_and_exit(a);
 	while (*arg)
 	{

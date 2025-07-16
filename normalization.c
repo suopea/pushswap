@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <limits.h>
 
 void	normal_map(t_node **stack)
 {

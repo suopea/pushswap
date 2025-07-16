@@ -25,12 +25,9 @@ int	main(int argc, char **argv)
 			exit_if_not_a_valid_number(argv[1], a);
 		return (0);
 	}
-	if (has_duplicates(argc, argv))
-	{
-		write(1, "Error\n", 6);
-		return (1);
-	}
 	a = args_to_linked_list(argc, argv, a);
+	if (has_duplicates(a))
+		error_free_and_exit(a);
 	normal_map(&a);
 	if (argc <= 6 && !already_sorted(a))
 		small_sort(a, b);

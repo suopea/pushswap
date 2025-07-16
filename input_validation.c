@@ -12,8 +12,6 @@
 
 #include "push_swap.h"
 
-static int	ft_strcmp(const char *s1, const char *s2);
-
 int	already_sorted(t_node *a)
 {
 	unsigned int	start;
@@ -30,32 +28,25 @@ int	already_sorted(t_node *a)
 	return (1);
 }
 
-int	has_duplicates(int argc, char **argv)
+int has_duplicates(t_node *stack)
 {
-	int	i;
-	int	j;
+	t_node	*current;
+	t_node	*ahead;
 
-	i = 1;
-	while (i < argc)
+	if (stack->value == stack->next->value)
+		return (1);
+	current = stack->next;
+	while (current != stack)
 	{
-		j = 1;
-		while (i + j < argc)
+		ahead = current->next;
+		while (ahead != current)
 		{
-			if (!ft_strcmp(argv[i], argv[i + j]))
+
+			if (current->value == ahead->value)
 				return (1);
-			j++;
+			ahead = ahead->next;
 		}
-		i++;
+		current = current->next;
 	}
 	return (0);
-}
-
-static int	ft_strcmp(const char *s1, const char *s2)
-{
-	size_t	i;
-
-	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i])
-		i++;
-	return (s1[i] - s2[i]);
 }
