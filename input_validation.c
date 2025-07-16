@@ -28,7 +28,7 @@ int	already_sorted(t_node *a)
 	return (1);
 }
 
-int has_duplicates(t_node *stack)
+int	has_duplicates(t_node *stack)
 {
 	t_node	*current;
 	t_node	*ahead;
@@ -41,7 +41,6 @@ int has_duplicates(t_node *stack)
 		ahead = current->next;
 		while (ahead != current)
 		{
-
 			if (current->value == ahead->value)
 				return (1);
 			ahead = ahead->next;

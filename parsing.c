@@ -37,7 +37,7 @@ t_node	*args_to_linked_list(int argc, char **argv, t_node *a)
 void	error_free_and_exit(t_node *stack)
 {
 	free_everything(stack, NULL);
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }
 
