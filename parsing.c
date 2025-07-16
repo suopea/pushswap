@@ -43,23 +43,25 @@ void	error_free_and_exit(t_node *stack)
 
 void	exit_if_not_a_valid_number(char *arg, t_node *a)
 {
-	int	oijoi;
+	int		oijoi;
+	size_t	i;
 
+	i = 0;
 	if ((*arg == '-' || *arg == '+') && !ft_isdigit(arg[1]))
 		error_free_and_exit(a);
 	if (*arg == '-' || *arg == '+')
-		arg++;
-	if (ft_strlen(arg) > 10 || *arg == 0)
+		i++;
+	if (ft_strlen(arg) > 11 || *arg == 0)
 		error_free_and_exit(a);
 	oijoi = 0;
 	atoijoi(arg, &oijoi);
 	if (oijoi)
 		error_free_and_exit(a);
-	while (*arg)
+	while (arg[i])
 	{
-		if (!ft_isdigit(*arg))
+		if (!ft_isdigit(arg[i]))
 			error_free_and_exit(a);
-		arg++;
+		i++;
 	}
 }
 
